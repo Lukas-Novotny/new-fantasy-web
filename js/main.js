@@ -246,15 +246,23 @@
     if (!menuContent) return;
 
     try {
-      const response = await fetch('/content/menu.json', {
-        headers: { 'Cache-Control': 'no-cache' },
-      });
+      // Timestamp busts both browser cache and Netlify CDN
+      const url = '/content/menu.json?_=' + Date.now();
+      const response = await fetch(url, { cache: 'no-store' });
 
-      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      if (!response.ok) throw new Error('HTTP ' + response.status);
 
-      const menu = await response.json();
+      const text = await response.text();
+      let menu;
+      try {
+        menu = JSON.parse(text);
+      } catch (parseErr) {
+        console.error('[Menu] JSON parse failed. First 300 chars:', text.slice(0, 300));
+        throw parseErr;
+      }
       renderMenu(menu);
     } catch (err) {
+      console.error('[Menu] Load error:', err);
       renderMenuError();
     }
   }
