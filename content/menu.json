@@ -1,0 +1,28 @@
+{
+  "date": "2025-06-26",
+  "soup": {
+    "name": "Hovězí vývar s nudlemi a zeleninou",
+    "allergens": "1, 3, 9"
+  },
+  "courses": [
+    {
+      "name": "Svíčková na smetaně",
+      "description": "hovězí maso, smetanová omáčka, houskový knedlík, brusinky",
+      "price": 139,
+      "allergens": "1, 3, 7"
+    },
+    {
+      "name": "Kuřecí prso na bylinkách",
+      "description": "rýže, zeleninový salát",
+      "price": 129,
+      "allergens": "1"
+    },
+    {
+      "name": "Smažená treska s bramborovou kaší",
+      "description": "tatarská omáčka, citron",
+      "price": 129,
+      "allergens": "1, 3, 4, 7"
+    }
+  ],
+  "note": "Polévka jako součást menu za 109 Kč. Polední menu podáváme pondělí–pátek od 11:00 do 14:00."
+}

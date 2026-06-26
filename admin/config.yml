@@ -1,0 +1,99 @@
+# ============================================================
+# Decap CMS Configuration – New Fantasy
+# Editable content: Daily lunch menu ONLY
+# ============================================================
+
+backend:
+  name: git-gateway
+  branch: main
+
+# Media (not used by menu, but available for future image uploads)
+media_folder: "assets/images"
+public_folder: "/assets/images"
+
+# CMS site URL (update to your Netlify URL)
+# site_url: https://www.newfantasy.cz
+
+# Show preview in CMS
+show_preview_links: false
+
+# Logo in CMS header
+logo_url: /assets/icons/favicon.svg
+
+# ============================================================
+# COLLECTIONS
+# ============================================================
+collections:
+  - name: "menu"
+    label: "Denní menu"
+    label_singular: "Denní menu"
+    files:
+      - label: "Dnešní polední menu"
+        name: "daily-menu"
+        file: "content/menu.json"
+        format: json
+        editor:
+          preview: false
+        fields:
+
+          # Date
+          - label: "Datum"
+            name: "date"
+            widget: "datetime"
+            format: "YYYY-MM-DD"
+            date_format: "DD.MM.YYYY"
+            time_format: false
+            hint: "Datum, pro které platí toto menu"
+
+          # Soup
+          - label: "Polévka"
+            name: "soup"
+            widget: "object"
+            collapsed: false
+            fields:
+              - label: "Název polévky"
+                name: "name"
+                widget: "string"
+                hint: "Např. Hovězí vývar s nudlemi"
+              - label: "Alergeny"
+                name: "allergens"
+                widget: "string"
+                required: false
+                hint: "Čísla alergenů oddělená čárkami, např. 1, 3, 9"
+
+          # Main courses
+          - label: "Hlavní jídla"
+            name: "courses"
+            widget: "list"
+            label_singular: "Jídlo"
+            min: 1
+            max: 5
+            fields:
+              - label: "Název jídla"
+                name: "name"
+                widget: "string"
+                hint: "Např. Svíčková na smetaně"
+              - label: "Popis / příloha"
+                name: "description"
+                widget: "string"
+                required: false
+                hint: "Např. houskový knedlík, zeleninový salát"
+              - label: "Cena (Kč)"
+                name: "price"
+                widget: "number"
+                value_type: "int"
+                min: 1
+                max: 999
+                hint: "Cena v korunách"
+              - label: "Alergeny"
+                name: "allergens"
+                widget: "string"
+                required: false
+                hint: "Čísla alergenů, např. 1, 3, 7"
+
+          # Note
+          - label: "Poznámka"
+            name: "note"
+            widget: "text"
+            required: false
+            hint: "Např. informace o ceně s polévkou, době podávání apod."

@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:cz.revieweuro.com)",
+      "WebFetch(domain:www.facebook.com)",
+      "WebSearch",
+      "WebFetch(domain:en.firmy.cz)",
+      "WebFetch(domain:www.newfantasy.cz)"
+    ]
+  }
+}
