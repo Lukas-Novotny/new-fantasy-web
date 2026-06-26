@@ -11,8 +11,8 @@ backend:
 media_folder: "assets/images"
 public_folder: "/assets/images"
 
-# CMS site URL (update to your Netlify URL)
-# site_url: https://www.newfantasy.cz
+# CMS site URL – must match your live Netlify URL
+site_url: https://new-fantasy.netlify.app
 
 # Show preview in CMS
 show_preview_links: false

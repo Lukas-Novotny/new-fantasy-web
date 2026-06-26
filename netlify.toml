@@ -55,9 +55,9 @@
   to    = "/admin/index.html"
   status = 200
 
-# Redirect non-www → www (update if your domain differs)
-[[redirects]]
-  from   = "https://newfantasy.netlify.app/*"
-  to     = "https://www.newfantasy.cz/:splat"
-  status = 301
-  force  = false
+# Future: redirect Netlify URL → custom domain once DNS is configured
+# [[redirects]]
+#   from   = "https://new-fantasy.netlify.app/*"
+#   to     = "https://www.newfantasy.cz/:splat"
+#   status = 301
+#   force  = true
