@@ -7,17 +7,13 @@ backend:
   name: git-gateway
   branch: main
 
-# Media (not used by menu, but available for future image uploads)
 media_folder: "assets/images"
 public_folder: "/assets/images"
 
-# CMS site URL – must match your live Netlify URL
 site_url: https://new-fantasy.netlify.app
 
-# Show preview in CMS
 show_preview_links: false
 
-# Logo in CMS header
 logo_url: /assets/icons/favicon.svg
 
 # ============================================================
@@ -36,7 +32,7 @@ collections:
           preview: false
         fields:
 
-          # Date
+          # ── Date ──────────────────────────────────────────
           - label: "Datum"
             name: "date"
             widget: "datetime"
@@ -45,53 +41,72 @@ collections:
             time_format: false
             hint: "Datum, pro které platí toto menu"
 
-          # Soup
-          - label: "Polévka"
-            name: "soup"
-            widget: "object"
-            collapsed: false
+          # ── Soups (up to 3) ───────────────────────────────
+          - label: "Polévky"
+            name: "soups"
+            widget: "list"
+            label_singular: "Polévka"
+            min: 1
+            max: 3
             fields:
               - label: "Název polévky"
                 name: "name"
                 widget: "string"
                 hint: "Např. Hovězí vývar s nudlemi"
-              - label: "Alergeny"
-                name: "allergens"
-                widget: "string"
-                required: false
-                hint: "Čísla alergenů oddělená čárkami, např. 1, 3, 9"
-
-          # Main courses
-          - label: "Hlavní jídla"
-            name: "courses"
-            widget: "list"
-            label_singular: "Jídlo"
-            min: 1
-            max: 5
-            fields:
-              - label: "Název jídla"
-                name: "name"
-                widget: "string"
-                hint: "Např. Svíčková na smetaně"
-              - label: "Popis / příloha"
-                name: "description"
-                widget: "string"
-                required: false
-                hint: "Např. houskový knedlík, zeleninový salát"
               - label: "Cena (Kč)"
                 name: "price"
                 widget: "number"
                 value_type: "int"
                 min: 1
                 max: 999
-                hint: "Cena v korunách"
               - label: "Alergeny"
                 name: "allergens"
                 widget: "string"
                 required: false
-                hint: "Čísla alergenů, např. 1, 3, 7"
+                hint: "Čísla alergenů, např. 1, 3, 9"
 
-          # Note
+          # ── Categories (named sections with items) ────────
+          - label: "Kategorie jídel"
+            name: "categories"
+            widget: "list"
+            label_singular: "Kategorie"
+            min: 1
+            max: 8
+            hint: "Např. Hotová jídla, Asijské speciality, Mexické speciality, Oblíbené, Salát"
+            fields:
+              - label: "Název kategorie"
+                name: "name"
+                widget: "string"
+                hint: "Např. Hotová jídla"
+              - label: "Jídla v kategorii"
+                name: "items"
+                widget: "list"
+                label_singular: "Jídlo"
+                min: 1
+                max: 10
+                fields:
+                  - label: "Název jídla"
+                    name: "name"
+                    widget: "string"
+                    hint: "Např. Svíčková na smetaně"
+                  - label: "Popis / příloha"
+                    name: "description"
+                    widget: "string"
+                    required: false
+                    hint: "Např. houskový knedlík, zeleninový salát"
+                  - label: "Cena (Kč)"
+                    name: "price"
+                    widget: "number"
+                    value_type: "int"
+                    min: 1
+                    max: 999
+                  - label: "Alergeny"
+                    name: "allergens"
+                    widget: "string"
+                    required: false
+                    hint: "Např. 1, 3, 7"
+
+          # ── Note ──────────────────────────────────────────
           - label: "Poznámka"
             name: "note"
             widget: "text"

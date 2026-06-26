@@ -1,28 +1,127 @@
 {
-  "date": "2025-06-26",
-  "soup": {
-    "name": "Hovězí vývar s nudlemi a zeleninou",
-    "allergens": "1, 3, 9"
-  },
-  "courses": [
+  "date": "2026-06-16",
+  "soups": [
     {
-      "name": "Svíčková na smetaně",
-      "description": "hovězí maso, smetanová omáčka, houskový knedlík, brusinky",
-      "price": 139,
+      "name": "Francouzská cibulačka s chlebovými krutony a sýrem",
+      "price": 50,
       "allergens": "1, 3, 7"
     },
     {
-      "name": "Kuřecí prso na bylinkách",
-      "description": "rýže, zeleninový salát",
-      "price": 129,
-      "allergens": "1"
-    },
-    {
-      "name": "Smažená treska s bramborovou kaší",
-      "description": "tatarská omáčka, citron",
-      "price": 129,
-      "allergens": "1, 3, 4, 7"
+      "name": "Rajčatová s nočky",
+      "price": 50,
+      "allergens": "1, 3"
     }
   ],
-  "note": "Polévka jako součást menu za 109 Kč. Polední menu podáváme pondělí–pátek od 11:00 do 14:00."
+  "categories": [
+    {
+      "name": "Hotová jídla",
+      "items": [
+        {
+          "name": "Vepřové výpečky",
+          "description": "houskové knedlíky, bílé zelí",
+          "price": 180,
+          "allergens": "1, 3"
+        },
+        {
+          "name": "Smažená rýže s kuřecím masem a zeleninou",
+          "description": "",
+          "price": 180,
+          "allergens": "1, 3, 11"
+        },
+        {
+          "name": "Vepřová kapsa plněná anglickou slaninou a hermelínem",
+          "description": "pečené brambory",
+          "price": 185,
+          "allergens": "1, 3, 7"
+        },
+        {
+          "name": "Hovězí stroganov",
+          "description": "houskové knedlíky nebo rýže",
+          "price": 185,
+          "allergens": "1, 3, 7"
+        }
+      ]
+    },
+    {
+      "name": "Asijské speciality",
+      "items": [
+        {
+          "name": "Asijské kuřecí nudličky s křehkou zeleninou a rýží",
+          "description": "",
+          "price": 185,
+          "allergens": "1, 6, 11"
+        },
+        {
+          "name": "Pikantní kuřecí směs s rýží",
+          "description": "",
+          "price": 185,
+          "allergens": "1, 6, 11"
+        }
+      ]
+    },
+    {
+      "name": "Mexické speciality",
+      "items": [
+        {
+          "name": "Burrito Cerdo",
+          "description": "vepřové maso, fazole, zelenina, čedar, zakysaná smetana",
+          "price": 195,
+          "allergens": "1, 3, 7"
+        },
+        {
+          "name": "Burrito Pollo",
+          "description": "grilované kuřecí maso, zelenina, čedar, fazolová pasta, zakysaná smetana",
+          "price": 190,
+          "allergens": "1, 3, 7"
+        },
+        {
+          "name": "Quesadilla Chorizo",
+          "description": "grilované vepřové maso, kukuřice, paprika, rajče, čedar",
+          "price": 198,
+          "allergens": "1, 3, 7"
+        },
+        {
+          "name": "Quesadilla California",
+          "description": "kuřecí stripsy, BBQ omáčka, rajče, ledový salát, čedar",
+          "price": 190,
+          "allergens": "1, 3, 7"
+        }
+      ]
+    },
+    {
+      "name": "Oblíbené",
+      "items": [
+        {
+          "name": "Smažený eidam s hranolky a tatarskou omáčkou",
+          "description": "",
+          "price": 180,
+          "allergens": "1, 3, 7"
+        },
+        {
+          "name": "Kuřecí nebo vepřový řízek s pečenými brambory",
+          "description": "",
+          "price": 180,
+          "allergens": "1, 3"
+        }
+      ]
+    },
+    {
+      "name": "Salát",
+      "items": [
+        {
+          "name": "Mix listových salátů s grilovaným kozím sýrem a dýňovými semínky",
+          "description": "",
+          "price": 175,
+          "allergens": "3, 7, 8"
+        },
+        {
+          "name": "Salát s kuřecím masem, francouzským dresinkem a čedarem",
+          "description": "",
+          "price": 175,
+          "allergens": "3, 7"
+        }
+      ]
+    }
+  ],
+  "note": "Denní menu podáváme každý pracovní den od 11:00 do 14:00."
 }

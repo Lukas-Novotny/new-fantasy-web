@@ -281,28 +281,52 @@
   }
 
   function renderMenu(menu) {
-    // Update date
     if (menuDate && menu.date) {
       menuDate.textContent = formatCzechDate(menu.date);
     }
 
     let html = '';
 
-    // Soup
-    if (menu.soup && menu.soup.name) {
-      html += `
-        <span class="menu-soup-label">Polévka</span>
-        <p class="menu-soup-name">${escHtml(menu.soup.name)}</p>
-      `;
-      if (menu.soup.allergens) {
-        html += `<p class="menu-soup-allergens">Alergeny: ${escHtml(menu.soup.allergens)}</p>`;
-      }
-      html += '<hr class="menu-divider">';
+    // ── Soups: support both new array format and legacy single-object format ──
+    const soups = Array.isArray(menu.soups)
+      ? menu.soups
+      : (menu.soup && menu.soup.name ? [menu.soup] : []);
+
+    if (soups.length > 0) {
+      html += '<span class="menu-soup-label">Polévka</span>';
+      soups.forEach(soup => {
+        html += `
+          <div class="menu-course">
+            <div class="menu-course-info">
+              <p class="menu-course-name">${escHtml(soup.name)}</p>
+              ${soup.allergens ? `<p class="menu-course-desc">Alergeny: ${escHtml(soup.allergens)}</p>` : ''}
+            </div>
+            ${soup.price ? `<span class="menu-course-price">${soup.price} Kč</span>` : ''}
+          </div>
+        `;
+      });
     }
 
-    // Main courses
-    if (menu.courses && menu.courses.length > 0) {
-      html += '<span class="menu-courses-label">Hlavní jídla</span>';
+    // ── Categories: new named-section format ──
+    if (menu.categories && menu.categories.length > 0) {
+      menu.categories.forEach(category => {
+        html += `<hr class="menu-divider"><span class="menu-courses-label">${escHtml(category.name)}</span>`;
+        (category.items || []).forEach(item => {
+          html += `
+            <div class="menu-course">
+              <div class="menu-course-info">
+                <p class="menu-course-name">${escHtml(item.name)}</p>
+                ${item.description ? `<p class="menu-course-desc">${escHtml(item.description)}</p>` : ''}
+                ${item.allergens ? `<p class="menu-course-desc">Alergeny: ${escHtml(item.allergens)}</p>` : ''}
+              </div>
+              <span class="menu-course-price">${item.price} Kč</span>
+            </div>
+          `;
+        });
+      });
+    } else if (menu.courses && menu.courses.length > 0) {
+      // ── Legacy flat-courses format ──
+      html += '<hr class="menu-divider"><span class="menu-courses-label">Hlavní jídla</span>';
       menu.courses.forEach(course => {
         html += `
           <div class="menu-course">
@@ -317,7 +341,7 @@
       });
     }
 
-    // Note
+    // ── Note ──
     if (menu.note) {
       html += `<div class="menu-note">${escHtml(menu.note)}</div>`;
     }

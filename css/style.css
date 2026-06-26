@@ -1180,6 +1180,22 @@ strong { font-weight: 600; }
 
 .menu-card-body {
   padding: 28px;
+  max-height: 520px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(196,154,108,0.4) rgba(255,255,255,0.04);
+}
+
+.menu-card-body::-webkit-scrollbar {
+  width: 4px;
+}
+.menu-card-body::-webkit-scrollbar-track {
+  background: rgba(255,255,255,0.04);
+  border-radius: 2px;
+}
+.menu-card-body::-webkit-scrollbar-thumb {
+  background: rgba(196,154,108,0.45);
+  border-radius: 2px;
 }
 
 /* Loading skeleton */
